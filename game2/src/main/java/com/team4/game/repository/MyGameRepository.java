@@ -1,0 +1,20 @@
+package com.team4.game.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.team4.game.entity.MyGame;
+
+public interface MyGameRepository extends JpaRepository<MyGame, Long>{
+
+	//@Query("select c from Cart c where user_id=?1")
+	List<MyGame> findByUserId(Long user_id);
+
+	void deleteByUserId(Long id);
+	void deleteByGameId(Long id);
+
+	MyGame findByUserIdAndGameId(Long id, Long id2);
+
+}
